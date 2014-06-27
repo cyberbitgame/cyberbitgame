@@ -8,7 +8,7 @@ Git
 
 To download the very latest source off the GIT server do this:
 
-    ```git clone git@github.com:cyberbitgame/cyberbitgame.git```
+    ```$ git clone git@github.com:cyberbitgame/cyberbitgame.git```
 
 (you'll get a directory named cyberbitgame created, filled with the source code)
 
