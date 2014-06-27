@@ -31,6 +31,11 @@ Instructions to build:
   Run it. ```$ ./configure```
 * Next step, is to run make. ```$ make```
 
+For Developers/Contributors
+=========
+
+Read [**docs/hacking.md**](docs/hacking.md)
+
 Contact
 =========
 If you have problems, questions, ideas or suggestions, please contact us
