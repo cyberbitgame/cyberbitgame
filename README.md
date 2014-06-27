@@ -19,7 +19,8 @@ Tools required:
 
 * You must have GNU C Compiler gcc.
 * You must have autotools on your machine (automake, autoconf and libtool 
-* packages). Under Ubuntu they are found in build-essential package.
+  packages). Under Ubuntu they are found in build-essential package.
+* You must have SDL1.2 installed on your machine.
 * You must have cutter framework installed (cutter-test_framework package) in 
   order to be able to run tests, but this is not required to build the package.
 
@@ -34,14 +35,15 @@ Contact
 =========
 If you have problems, questions, ideas or suggestions, please contact us
 by posting to a mailing list. Mailing list details can be found here:
-**docs/hacking.md**
 
-All contributors to the project are listed in the **docs/hacking.md** document.
+[**docs/hacking.md**](docs/hacking.md)
+
+All contributors to the project are listed in the [**docs/hacking.md**](docs/hacking.md) document.
 
 Website
 =========
 
 Visit the cyberbitgame web site for the latest news and updates:
 
-        http://cyberbitgame.com/
+[cyberbitgame](http://www.cyberbitgame.com/)        
 
