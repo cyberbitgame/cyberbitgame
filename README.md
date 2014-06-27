@@ -33,9 +33,10 @@ Instructions to build:
 Contact
 =========
 If you have problems, questions, ideas or suggestions, please contact us
-by posting to a mailing list.
+by posting to a mailing list. Mailing list details can be found here:
+docs/hacking.md
 
-All contributors to the project are listed in the src/hacking.md document.
+All contributors to the project are listed in the docs/hacking.md document.
 
 Website
 =========
