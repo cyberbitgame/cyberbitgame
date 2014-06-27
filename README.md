@@ -8,7 +8,7 @@ Git
 
 To download the very latest source off the GIT server do this:
 
-    ```$ git clone git@github.com:cyberbitgame/cyberbitgame.git```
+    $ git clone git@github.com:cyberbitgame/cyberbitgame.git
 
 (you'll get a directory named cyberbitgame created, filled with the source code)
 
@@ -34,9 +34,9 @@ Contact
 =========
 If you have problems, questions, ideas or suggestions, please contact us
 by posting to a mailing list. Mailing list details can be found here:
-docs/hacking.md
+**docs/hacking.md**
 
-All contributors to the project are listed in the docs/hacking.md document.
+All contributors to the project are listed in the **docs/hacking.md** document.
 
 Website
 =========
