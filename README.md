@@ -1,4 +1,4 @@
-"CyberBit" Game
+CyberBit Game
 =========
 
 This is an open source 2D Side Scroller PC Game. 
@@ -12,7 +12,7 @@ To download the very latest source off the GIT server do this:
 
 (you'll get a directory named cyberbitgame created, filled with the source code)
 
-"How to build" Game
+How to build Game
 =========
 
 Tools required:
