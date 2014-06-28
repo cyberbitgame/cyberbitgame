@@ -118,6 +118,17 @@ The todo list can be found [here.](https://github.com/cyberbitgame/cyberbitgame/
 
 [x] Working/Completed Task (someone finished it or working on it)
 
+Presentations:
+========
+
+List of presentation, so that everyone feel comfortable working on project.
+
+Date & Time of presentation can be found in [presentation.md](https://github.com/cyberbitgame/cyberbitgame/blob/develop/docs/ToDo.txt) file.
+
+Roadmap:
+========
+
+Roadmap for our project can be found [here.](https://github.com/cyberbitgame/cyberbitgame/blob/develop/docs/roadmap.md)
 
 Authors:
 ========
