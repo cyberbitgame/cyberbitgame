@@ -17,9 +17,10 @@ Working with Git:
 ========
 
 1. You need to Fork the project. You can read about forking [here.](https://help.github.com/articles/fork-a-repo)
-2. Clone your repo. (```$ git clone git@github.com:<username>>/cyberbitgame.git```)
+2. Clone your repo. (```$ git clone git@github.com:<username>/cyberbitgame.git```)
 
 3. Add the remote. (```$ git remote add <remote_name> <remote_adress>```)
+   
    ```$ git remote add upstream https://github.com/cyberbitgame/cyberbitgame.git```
 
 > Branching:
@@ -41,18 +42,29 @@ Working with Git:
 
 6. Work on your bug/issue/patch & Merge it with develop.
 
-   ```$ git add <your-modified-files>
+  ```
+   $ git add <your-modified-files>
+   
    $ git commit -m "meaningfull message, if you fixed the issue, mention issue#"
+   
    $ git checkout develop  
+   
    Switched to branch 'develop'  
+   
    $ git merge --no-ff screen-reso-bugfix 
+   
    Updating ea1b82a..05e9557  
+   
    (Summary of changes)  
+   
    $ git branch -d screen-reso-bugfix  
+   
    Deleted branch screen-reso-bugfix (was 05e9557).  
-   $ git push origin develop```
+   
+   $ git push origin develop
+   ```
 
-7. Make a pull request to develop branch of cyberbitgame repo. [Pull request])(https://help.github.com/articles/creating-a-pull-request)
+7. Make a pull request to develop branch of cyberbitgame repo. [Pull request](https://help.github.com/articles/creating-a-pull-request)
 
 Communication:
 ========
