@@ -113,7 +113,9 @@ ToDo List:
 ========
 
 The todo list can be found [here.](https://github.com/cyberbitgame/cyberbitgame/blob/develop/docs/ToDo.txt)
+
 [] Opened Task (no one is working on it)
+
 [x] Working/Completed Task (someone finished it or working on it)
 
 
