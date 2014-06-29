@@ -20,7 +20,8 @@ Tools required:
 * You must have GNU C Compiler gcc.
 * You must have autotools on your machine (automake, autoconf and libtool 
   packages). Under Ubuntu they are found in build-essential package.
-* You must have SDL1.2 installed on your machine.
+* You must have SDL1.2 (This also requires SDL-devel, SDL_image, SDL_image-devel,
+  SDL_mixer, SDL_mixer-devel, SDL_ttf, and SDL_ttf-devel).
 * You must have cutter framework installed (cutter-test_framework package) in 
   order to be able to run tests, but this is not required to build the package.
 
