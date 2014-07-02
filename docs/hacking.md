@@ -143,5 +143,5 @@ Contributors:
 Special Thanks To:
 ========
 
-**CruceGame Crew**
+[**CruceGame Crew**](https://github.com/CruceGameDevel/CruceGame)
 

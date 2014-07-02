@@ -1,9 +1,4 @@
 TODO List:
 =======
 
-[] Sample Task
-[] Sample Task
-[] Sample Task
-[x] Working/Completed Task
-[x] Working/Completed Task
-[x] Working/Completed Task
+[x] Update wiki about installing Ubuntu inside windows using Virtual Box [Raoul]
