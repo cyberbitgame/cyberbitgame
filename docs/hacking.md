@@ -123,7 +123,7 @@ Presentations:
 
 List of presentation, so that everyone feel comfortable working on project.
 
-Date & Time of presentation can be found in [presentation.md](https://github.com/cyberbitgame/cyberbitgame/blob/develop/docs/ToDo.txt) file.
+Date & Time of presentation can be found in [presentation.md](https://github.com/cyberbitgame/cyberbitgame/blob/develop/docs/presentation.md) file.
 
 Roadmap:
 ========
