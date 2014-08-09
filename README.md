@@ -22,7 +22,9 @@ Tools required:
   packages). Under Ubuntu they are found in build-essential package.
 * You must have SDL1.2 (This also requires SDL-devel, SDL_image, SDL_image-devel,
   SDL_mixer, SDL_mixer-devel, SDL_ttf, and SDL_ttf-devel).
-  ```$ sudo apt-get install libsdl1.2-dev libsdl-ttf2.0-dev libsdl-sound1.2-dev libsdl-sge-dev libsdl-pango-dev libsdl-net1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-gfx1.2-dev```
+  
+```$ sudo apt-get install libsdl1.2-dev libsdl-ttf2.0-dev libsdl-sound1.2-dev libsdl-sge-dev libsdl-pango-dev libsdl-net1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-gfx1.2-dev```
+
 * You must have cutter framework installed (cutter-test_framework package) in
   order to be able to run tests, but this is not required to build the package.
 
