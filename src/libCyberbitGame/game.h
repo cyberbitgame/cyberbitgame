@@ -32,6 +32,7 @@ public:
 	Game();
 	~Game();
 	void game_start();
+	void load_characters();
 
 };
 

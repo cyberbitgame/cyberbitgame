@@ -1,8 +1,9 @@
 #include "gameplay.h"
 
-GamePlay::GamePlay() 
+GamePlay::GamePlay()
 {
 	Game Cyberbit;
+	Cyberbit.load_characters(); //This should populate globals' json_characters object
 	Cyberbit.game_start();
 
 }
