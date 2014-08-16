@@ -1,0 +1,12 @@
+[
+	{
+		"Name":"Temp One",
+		"Health":100,
+		"Stamina":100
+	},
+	{
+		"Name":"Temp Two",
+		"Health":120,
+		"Stamina":80
+	}
+]
