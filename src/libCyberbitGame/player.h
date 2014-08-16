@@ -24,7 +24,7 @@ public:
 	int player_getVelocity(graph axis);
 	void player_move(const std::vector<std::vector <int> >& map);
 	void player_show(SDL_Surface* screen);
-	void load_defaults(int character_id);
+	void player_load_defaults(int character_id);
 };
 
 #endif

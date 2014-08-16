@@ -1,5 +1,6 @@
 #include "game.h"
 #include "globals.h"
+#include "errors.h"
 #include <iostream>
 #include <fstream>
 
@@ -150,7 +151,7 @@ void Game::game_render_section()
 void Game::game_start()
 {
     //Setup gameplayer stats
-	gameplayer->load_defaults(0);
+	gameplayer->player_load_defaults(0);
 
 	const int FPS=30;
 	Uint32 start;
@@ -192,14 +193,16 @@ SDL_Surface* Game::game_load_image(const char* imageFile, Uint32 colorKey)
 	return imageFormat;
 }
 
-void Game::load_characters()
+void Game::game_load_characters()
 {
     std::ifstream file("../data/characters.json");
+    if( !file.good() )
+        exit(EXIT_MISSING_CHARACTER_FILE);
     std::string character_string((std::istreambuf_iterator<char>(file)),(std::istreambuf_iterator<char>()));
     Json::Reader reader;
     if(!reader.parse(character_string, json_characters, false))
     {
         if(DEV){std::cout<<"Fatal error: Parse json_characters failed."<<'\n';}
-        exit(EXIT_FAILURE);
+        exit(EXIT_CANNOT_PARSE_CHARACTER_FILE);
     }
 }
