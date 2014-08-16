@@ -1,4 +1,7 @@
 #include "player.h"
+#include "globals.h"
+
+extern Json::Value json_characters;
 
 Player::Player(SDL_Surface* characterImage)
 {
@@ -55,4 +58,32 @@ void Player::player_move(const std::vector<std::vector <int> >& map)
 	playerFrame.y+=playerYVelocity;
 
 
+}
+void Player::player_load_defaults(int character_id)
+{
+    //Make sure the id exists
+    if( character_id < 0 || character_id >= (int)json_characters.size() ) {
+        if(DEV){std::cout<<"character "<<character_id<<" does not exist."<<'\n';}
+        return;
+    }
+
+    if( json_characters[character_id]["Name"].asString().empty() ) {
+        if(DEV){std::cout<<"character "<<character_id<<" missing \"Name\""<<'\n';}
+        return;
+    }
+    if(!json_characters[character_id]["Health"].isInt()) {
+        if(DEV){std::cout<<"character "<<character_id<<" has invalid health"<<'\n';}
+        return;
+    }
+    if(!json_characters[character_id]["Stamina"].isInt()) {
+        if(DEV){std::cout<<"character "<<character_id<<" has invalid stamina"<<'\n';}
+        return;
+    }
+
+    /* //Load stats into self
+    this.name = json_characters[character_id]["Name"].asString();
+    this.health = json_characters[character_id]["Health"].asInt();
+    this.stamina = json_characters[character_id]["Stamina"].asInt();
+    */
+    return;
 }

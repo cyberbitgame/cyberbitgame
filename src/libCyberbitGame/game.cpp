@@ -1,4 +1,8 @@
 #include "game.h"
+#include "globals.h"
+#include "errors.h"
+#include <iostream>
+#include <fstream>
 
 SDL_Rect Frame::frameCoordinate;
 
@@ -22,7 +26,6 @@ Game::Game()
 	camera.w = SCREEN_WIDTH;
 	Frame::frameCoordinate.w = SCREEN_HEIGHT;
 	gameplayer = new Player(game_load_image("../data/images/nature.bmp", whiteColorKey));
-
 }
 
 Game::~Game()
@@ -65,15 +68,15 @@ void Game::game_event_handler()
 void Game::game_load_map(const char* mapFile)
 {
 	std::ifstream mapData(mapFile);
-	int mapRowSize; 
-	int mapColumnSize; 
-	int mapCurrentBlock; 
+	int mapRowSize;
+	int mapColumnSize;
+	int mapCurrentBlock;
 	if(!mapData.is_open()) {
 		std::cout<<"Unable to load mapfile\n" << mapFile;
 		exit(EXIT_FAILURE);
 	}
 
-	mapData >> mapColumnSize; 
+	mapData >> mapColumnSize;
 	mapData >> mapRowSize;
 	for(int i=0;i<mapRowSize;i++) {
 		std::vector<int> vec;
@@ -95,9 +98,9 @@ void Game::game_load_map(const char* mapFile)
 	mapData.close();
 }
 
-void Game::game_show_map() 
+void Game::game_show_map()
 {
-	
+
 	for (int i=0; i<map.size(); i++) {
 		for (int j=0; j<map[0].size(); j++) {
 				if(map[i][j] != 0) {
@@ -147,6 +150,9 @@ void Game::game_render_section()
 
 void Game::game_start()
 {
+    //Setup gameplayer stats
+	gameplayer->player_load_defaults(0);
+
 	const int FPS=30;
 	Uint32 start;
 	running = true;
@@ -185,4 +191,18 @@ SDL_Surface* Game::game_load_image(const char* imageFile, Uint32 colorKey)
 		exit(EXIT_FAILURE);
 	}
 	return imageFormat;
+}
+
+void Game::game_load_characters()
+{
+    std::ifstream file("../data/characters.json");
+    if( !file.good() )
+        exit(EXIT_MISSING_CHARACTER_FILE);
+    std::string character_string((std::istreambuf_iterator<char>(file)),(std::istreambuf_iterator<char>()));
+    Json::Reader reader;
+    if(!reader.parse(character_string, json_characters, false))
+    {
+        if(DEV){std::cout<<"Fatal error: Parse json_characters failed."<<'\n';}
+        exit(EXIT_CANNOT_PARSE_CHARACTER_FILE);
+    }
 }

@@ -1,6 +1,7 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#define DEV true
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 #define SPEED 5
