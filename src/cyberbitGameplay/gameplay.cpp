@@ -1,4 +1,5 @@
 #include "gameplay.h"
+#include "../libCyberbitGame/cyberbitGame.h"
 
 GamePlay::GamePlay()
 {

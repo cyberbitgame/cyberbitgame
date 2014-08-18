@@ -2,6 +2,8 @@
 #include "constants.h"
 #include "frame.h"
 #include "physics.h"
+#include "cyberbitGame.h"
+#include "globals.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H
@@ -10,7 +12,7 @@ typedef enum _graph { XAXIS = 1,
 				   YAXIS = 2
 } graph;
 
-class Player:Physics {
+class Player : Physics {
 	SDL_Rect playerFrame;
 	SDL_Surface* playerImage;
 	int playerXVelocity;

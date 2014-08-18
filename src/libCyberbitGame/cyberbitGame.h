@@ -6,6 +6,9 @@
 #include "constants.h"
 #include "player.h"
 #include "libraries.h"
+#include "globals.h"
+#include "../libjson/json.h"
+#include "../libjson/json-forwards.h"
 
 #endif
 

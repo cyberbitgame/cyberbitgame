@@ -1,4 +1,5 @@
 #include "game.h"
+#include "cyberbitGame.h"
 #include "globals.h"
 #include "errors.h"
 #include <iostream>
