@@ -2,6 +2,7 @@
 #include "frame.h"
 #include "constants.h"
 #include "player.h"
+#include "./engine/music.h"
 
 #ifndef GAME_H
 #define GAME_H
@@ -18,8 +19,8 @@ class Game {
 	bool running;
 	enum _movement { L_MOVEMENT = 0,
 					 R_MOVEMENT = 1 } movement;
-	Player *gameplayer;
-
+	Player* gameplayer;
+	Music* gamemusic;
 	SDL_Surface* game_load_image(const char* imageFile, Uint32 colorKey);
 	void game_load_map(const char* mapFile);
 	void game_show_map();
