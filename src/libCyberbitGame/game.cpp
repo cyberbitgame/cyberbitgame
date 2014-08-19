@@ -1,4 +1,5 @@
 #include "game.h"
+#include "cyberbitGame.h"
 #include "globals.h"
 #include "errors.h"
 #include <iostream>
@@ -26,6 +27,8 @@ Game::Game()
 	camera.w = SCREEN_WIDTH;
 	Frame::frameCoordinate.w = SCREEN_HEIGHT;
 	gameplayer = new Player(game_load_image("../data/images/nature.bmp", whiteColorKey));
+	gamemusic = new Music();
+	gamemusic->music_play_music(BACKGROUND_MUSIC);
 }
 
 Game::~Game()
@@ -197,12 +200,12 @@ void Game::game_load_characters()
 {
     std::ifstream file("../data/characters.json");
     if( !file.good() )
-        exit(EXIT_MISSING_CHARACTER_FILE);
+        exit(MISSING_CHARACTER_FILE);
     std::string character_string((std::istreambuf_iterator<char>(file)),(std::istreambuf_iterator<char>()));
     Json::Reader reader;
     if(!reader.parse(character_string, json_characters, false))
     {
         if(DEV){std::cout<<"Fatal error: Parse json_characters failed."<<'\n';}
-        exit(EXIT_CANNOT_PARSE_CHARACTER_FILE);
+        exit(CANNOT_PARSE_CHARACTER_FILE);
     }
 }
