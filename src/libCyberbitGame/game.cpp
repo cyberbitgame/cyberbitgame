@@ -28,6 +28,7 @@ Game::Game()
 	Frame::frameCoordinate.w = SCREEN_HEIGHT;
 	gameplayer = new Player(game_load_image("../data/images/nature.bmp", whiteColorKey));
 	gamemusic = new Music();
+	gamemusic->music_play_music(BACKGROUND_MUSIC);
 }
 
 Game::~Game()

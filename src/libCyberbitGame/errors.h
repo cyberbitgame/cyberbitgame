@@ -2,13 +2,15 @@
 #define ERRORS_H
 
 
-// Parser Errors
+/** Parser Errors */
 #define MISSING_CHARACTER_FILE 100
 #define CANNOT_PARSE_CHARACTER_FILE 101
 
-// SDL_Mixer Errors
+/** SDL_Mixer Errors */
 #define UNABLE_TO_OPEN_AUDIO_SDL 200
 #define UNABLE_TO_LOAD_MUSIC_FILE 201
 #define UNABLE_TO_LOAD_CHUNK_FILE 202
+#define UNABLE_TO_PLAY_MUSIC 203
+#define UNABLE_TO_PLAY_CHUNK 204
 
 #endif
