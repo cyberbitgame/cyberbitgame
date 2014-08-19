@@ -1,7 +1,8 @@
+#include "libraries.h"
+#include "cyberbitGame.h"
+
 #ifndef PHYSICS_H
 #define PHYSICS_H
-
-#include "libraries.h"
 
 /**
  * Physics class. This class is used for describing the physics of the game

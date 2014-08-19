@@ -12,5 +12,12 @@
 #define GAME_VERSION 0.2.0
 #define GAME_NAME CYBERBITGAME
 #define TILE_SIZE 100
+#define BACKGROUND_MUSIC 1
+#define HERO_MUSIC 2
+#define FIRST_FREE_UNRESERVED_CHANNEL -1
+#define PUNCH_CHUNK 1
+#define ONCE 0
+#define ONE_TIME 1
+
 
 #endif

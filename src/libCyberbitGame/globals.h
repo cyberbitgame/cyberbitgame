@@ -1,4 +1,4 @@
-#include "../json/json.h"
+#include "../libjson/json.h"
 
 #ifndef GLOBALS_H
 #define GLOBALS_H
