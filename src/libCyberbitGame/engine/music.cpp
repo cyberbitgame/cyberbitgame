@@ -16,6 +16,7 @@ Music::~Music()
 {
 	Mix_FreeChunk(sounds);
 	Mix_FreeMusic(bgmusic);
+	Mix_CloseAudio();
 }
 
 Mix_Music* Music::music_load_music(const char* music_file)
