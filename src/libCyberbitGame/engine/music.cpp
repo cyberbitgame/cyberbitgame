@@ -8,8 +8,8 @@ Music::Music()
 	}
 	std::cout<<"Game Constructor";
 
-	bgmusic = music_load_music("../data/music/aria.mp3");
-	sounds = music_load_chunk("../data/music/start.wav");
+	bgmusic = music_load_music("../data/music/heroTheme_music.mp3");
+	sounds = music_load_chunk("../data/music/punchSound_chunk.wav");
 }
 
 Music::~Music()
