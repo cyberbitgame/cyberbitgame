@@ -17,6 +17,7 @@ cyberbitGame_LDFLAGS = -lSDL -lSDL_ttf -lSDL_mixer
 libCyberbitGame_la_SOURCES = libCyberbitGame/game.cpp \
 			  				 libCyberbitGame/player.cpp \
 			  				 libCyberbitGame/globals.cpp \
-			  				 libCyberbitGame/engine/music.cpp
+			  				 libCyberbitGame/engine/music.cpp \
+			  				 libCyberbitGame/physics.cpp
 
 libjson_la_SOURCES = libjson/jsoncpp.cpp
