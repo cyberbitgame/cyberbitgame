@@ -89,9 +89,8 @@ void Player::player_move(const std::vector<std::vector <int> >& map)
 
 	playerFrame.x+=playerXVelocity;
 	playerFrame.y+=playerYVelocity;
-
-
 }
+
 void Player::player_load_defaults(int character_id)
 {
     //Make sure the id exists
