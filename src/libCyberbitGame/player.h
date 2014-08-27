@@ -12,11 +12,12 @@ typedef enum _graph { XAXIS = 1,
 				   YAXIS = 2
 } graph;
 
-class Player : Physics {
+class Player : public Physics {
 	SDL_Rect playerFrame;
 	SDL_Surface* playerImage;
 	int playerXVelocity;
 	int playerYVelocity;
+	bool onGround;
 	// initialize an array that contain all the frame animation of character
 public:
 	Player(SDL_Surface* characterImage);
