@@ -1,3 +1,5 @@
+[![Build Status](https://api.travis-ci.org/cyberbitgame/cyberbitgame.png?branch=develop)](https://travis-ci.org/cyberbitgame/cyberbitgame)
+
 CyberBit Game
 =========
 
