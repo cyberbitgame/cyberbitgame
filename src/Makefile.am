@@ -11,7 +11,7 @@ lib_LTLIBRARIES = libCyberbitGame.la libjson.la
 bin_PROGRAMS = cyberbitGame
 
 cyberbitGame_SOURCES = cyberbitGameplay/main.cpp cyberbitGameplay/gameplay.cpp
-cyberbitGame_LDADD = libjson.la libCyberbitGame.la
+cyberbitGame_LDADD = libCyberbitGame.la libjson.la
 cyberbitGame_LDFLAGS = -lSDL -lSDL_ttf -lSDL_mixer
 
 libCyberbitGame_la_SOURCES = libCyberbitGame/game.cpp \
