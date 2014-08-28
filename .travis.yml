@@ -4,8 +4,6 @@ compiler:
 before_install:
   - echo $LANG
   - echo $LC_ALL
-  - sudo add-apt-repository ppa:ubuntu-audio-dev/pulse-testing -y
-  - sudo apt-get update
   - sudo apt-get install libsdl1.2-dev libsdl-ttf2.0-dev libsdl-sound1.2-dev libsdl-sge-dev libsdl-pango-dev libsdl-net1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-gfx1.2-dev cutter-testing-framework libjson0 libjson0-dev pulseaudio
   - wget https://s3.amazonaws.com/json-c_releases/releases/json-c-0.12.tar.gz
   - tar -xzvf json-c-0.12.tar.gz
@@ -13,7 +11,6 @@ before_install:
   - sed -i s/-Werror// Makefile.in && ./configure --prefix=/usr --disable-static && make -j1
   - sudo make install
   - cd ..
-  - pulseaudio --version
 script: ./autogen.sh && ./configure && make
 branches:
   only:
