@@ -52,6 +52,8 @@ void Game::game_event_handler()
 												 break;
 								case SDLK_RIGHT: direction[R_MOVEMENT]=1;
 												 break;
+								//case SDLK_SPACE: for jump
+								//case SDLK_S : for shoot
 								default: break;
 							  }
 							  break;
