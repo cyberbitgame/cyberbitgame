@@ -10,6 +10,7 @@
 #include "../libjson/json.h"
 #include "../libjson/json-forwards.h"
 #include "./engine/music.h"
+#include "menu.h"
 
 #endif
 
