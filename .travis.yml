@@ -22,7 +22,8 @@ before_install:
   - sudo make install
   - sudo ldconfig
   - cd ..
-script: ./autogen.sh && ./configure && make
+  - ./autogen.sh && ./configure && make
+script: test/run-test.sh
 branches:
   only:
     - develop

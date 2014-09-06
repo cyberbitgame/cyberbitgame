@@ -7,17 +7,17 @@ CXXFLAGS = -Wall -Wextra -g `sdl-config --cflags`
 LDFLAGS  = `sdl-config --libs` \
            -lSDL_image -lSDL_ttf -lSDL_mixer -lm
 
-lib_LTLIBRARIES = libCyberbitGame.la libjson.la
+lib_LTLIBRARIES = libCyberbitGame.la
 bin_PROGRAMS = cyberbitGame
 
 cyberbitGame_SOURCES = cyberbitGameplay/main.cpp cyberbitGameplay/gameplay.cpp
-cyberbitGame_LDADD = libCyberbitGame.la libjson.la
+cyberbitGame_LDADD = libCyberbitGame.la
 cyberbitGame_LDFLAGS = -lSDL -lSDL_ttf -lSDL_mixer
 
 libCyberbitGame_la_SOURCES = libCyberbitGame/game.cpp \
 			  				 libCyberbitGame/player.cpp \
 			  				 libCyberbitGame/globals.cpp \
 			  				 libCyberbitGame/engine/music.cpp \
-			  				 libCyberbitGame/physics.cpp
+			  				 libCyberbitGame/physics.cpp \
+			  				 libjson/jsoncpp.cpp
 
-libjson_la_SOURCES = libjson/jsoncpp.cpp
