@@ -14,7 +14,7 @@ AC_PROG_LIBTOOL
 
 AC_CHECK_HEADERS([SDL/SDL.h SDL/SDL_ttf.h SDL/SDL_mixer.h])
 
-AC_CHECK_CUTTER
+AC_CHECK_CPPCUTTER
 AM_CONDITIONAL(CUTTER, test x"$cutter_use_cutter" = x"yes")
 
 AC_ARG_ENABLE(debug,
@@ -32,6 +32,7 @@ else
 fi
 AM_CONDITIONAL(DEBUG, test x"$debug" = x"true")
 AC_CONFIG_FILES([Makefile
-                 src/Makefile])
+                 src/Makefile
+                 test/Makefile])
 
 AC_OUTPUT

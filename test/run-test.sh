@@ -7,20 +7,20 @@ if test -z "$NO_MAKE"; then
     make -C $top_dir > /dev/null || exit 1
 fi
 
-if test -z "$CUTTER"; then
+if test -z "$CPPCUTTER"; then
     CUTTER="`make -s -C $BASE_DIR echo-cutter`"
 fi
 
 case `uname` in
     CYGWIN*)
-        PATH="$top_dir/src/libCruceGame/.libs:$PATH"
+        PATH="$top_dir/src/libCyberbitGame/.libs:$PATH"
         ;;
     Darwin)
-        DYLD_LIBRARY_PATH="$top_dir/src/libCruceGame/.libs:$DYLD_LIBRARY_PATH"
+        DYLD_LIBRARY_PATH="$top_dir/src/libCyberbitGame/.libs:$DYLD_LIBRARY_PATH"
         export DYLD_LIBRARY_PATH
         ;;
     *BSD)
-        LD_LIBRARY_PATH="$top_dir/src/libCruceGame/.libs:$LD_LIBRARY_PATH"
+        LD_LIBRARY_PATH="$top_dir/src/libCyberbitGame/.libs:$LD_LIBRARY_PATH"
         export LD_LIBRARY_PATH
         ;;
     *)

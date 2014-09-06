@@ -19,5 +19,7 @@ protected:
  */
 	bool physics_collision(SDL_Rect* object1, SDL_Rect* object2);
 
+public:
+		int physics_add(int x, int y);
 };
 #endif
