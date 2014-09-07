@@ -19,5 +19,8 @@
 #define ONCE 0
 #define ONE_TIME 1
 
+//Menu definitions
+#define MAIN_MENU 0
+#define PAUSE_MENU 1
 
 #endif
