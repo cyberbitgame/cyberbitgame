@@ -12,3 +12,8 @@ bool Physics::physics_collision(SDL_Rect* object1, SDL_Rect* object2)
 		return 0;
 	return 1;
 }
+
+int Physics::physics_add(int x, int y)
+{
+	return x+y;
+}

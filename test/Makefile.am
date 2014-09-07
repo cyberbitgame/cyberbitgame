@@ -1,17 +1,17 @@
-AM_CPPFLAGS = $(CUTTER_CFLAGS)  -I$(top_srcdir)/src/libCyberBit \
-				-I$(top_srcdir)/src/libAsciiGui \
-				-DDEBUG
+AM_CPPFLAGS = $(CPPCUTTER_CFLAGS)  	-I$(top_srcdir)/src/libjson \
+									-I$(top_srcdir)/src/libCyberbitGame \
+									-I$(top_srcdir)/src/libAsciiGui \
+									-DDEBUG
 
 LDFLAGS = -module -rpath $(libdir) -avoid-version -no-undefined
-CFLAGS = -std=c99
+CPPFLAGS = -I/usr/include
 TESTS_ENVIRONMENT = NO_MAKE=yes CUTTER="$(CUTTER)"
 echo-cutter:
 	@echo $(CUTTER)
 
 TESTS = run-test.sh
 
-noinst_LTLIBRARIES = test_game.la
-LIBS = $(CUTTER_LIBS) ${top_builddir}/src/libCyberBit.la
+noinst_LTLIBRARIES = test_physics.la
+LIBS = $(CPPCUTTER_LIBS) ${top_builddir}/src/libCyberbitGame.la
 
-#test_game_la_SOURCES = test-deck.c test-team.c test-round.c test-game.c
-
+test_physics_la_SOURCES = test-physics.cpp
