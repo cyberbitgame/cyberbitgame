@@ -2,20 +2,25 @@
 #include "game.h"
 #include "menu.h"
 
-void Menu::menu_load(int menu_type, Game* game_obj) {
+int Menu::menu_load(int menu_type, Game* game_obj) {
     switch(menu_type) {
         case MAIN_MENU:
             if(DEV){std::cout<<"Rendering main menu"<<'\n';}
-            _main_menu(game_obj);
+            if( !_main_menu(game_obj) )
+                return 1; //Return 1 for error
             break;
         case PAUSE_MENU:
-            _pause_menu(game_obj);
+            if( !_pause_menu(game_obj) )
+                return 1; //Return 1 for error
+            break;
+        default:
+            return 1; //Return 1 for error
             break;
     }
-    return;
+    return 0;
 }
 
-void _main_menu(Game* game_obj) {
+int _main_menu(Game* game_obj) {
     const int btn_count = 3;
     const char* btn_labels[btn_count] = {"Play","Character Select","Exit"};
     const char* menu_header = "Main  Menu";
@@ -32,11 +37,14 @@ void _main_menu(Game* game_obj) {
         case EXIT:
             //Exit
         break;
+        default:
+            return 1;
+        break;
     }
-    return;
+    return 0;
 }
 
-void _pause_menu(Game* game_obj) {
+int _pause_menu(Game* game_obj) {
     const int btn_count = 2;
     const char* btn_labels[btn_count] = {"Resume","Exit"};
     const char* menu_header = "Paused";
@@ -50,8 +58,11 @@ void _pause_menu(Game* game_obj) {
             //Exit
             exit(0); //Fix this up later
         break;
+        default:
+            return 1;
+        break;
     }
-    return;
+    return 0;
 }
 
 int _load_menu(Game* game_obj, const char* menu_header, int btn_count, const char* btn_labels[]) {
