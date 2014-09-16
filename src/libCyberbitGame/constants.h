@@ -18,6 +18,8 @@
 #define PUNCH_CHUNK 1
 #define ONCE 0
 #define ONE_TIME 1
+#define NO_ERROR 0
+#define FOREVER 1
 
 //Menu definitions
 #define MAIN_MENU 0
