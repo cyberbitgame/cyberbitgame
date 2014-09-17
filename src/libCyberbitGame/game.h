@@ -8,8 +8,6 @@
 #define GAME_H
 
 class Game {
-
-	SDL_Surface* screen;
 	SDL_Surface* icon;
 	SDL_Surface* displayBlockMap;
 	SDL_Surface* backgroundMap;
@@ -30,6 +28,8 @@ class Game {
 
 public:
 
+	int FPS;
+	SDL_Surface* screen;
 	Game();
 	~Game();
 	void game_start();
