@@ -162,8 +162,11 @@ int _load_menu(Game* game_obj, const char* menu_header, int btn_count, const cha
             SDL_BlitSurface(buttons[button], NULL, game_obj->screen, &btn_pos[button]);
         }
         SDL_Flip(game_obj->screen);
-        if( (Uint32)(1000/game_obj->FPS) > (SDL_GetTicks()-time) )
-            SDL_Delay(1000/game_obj->FPS-(SDL_GetTicks()-time));
+        //if( (Uint32)(1000/game_obj->FPS) > (SDL_GetTicks()-time) )
+          //  SDL_Delay(1000/game_obj->FPS-(SDL_GetTicks()-time));
+if( (Uint32)(1000/30) > (SDL_GetTicks()-time) )
+  SDL_Delay(1000/30-(SDL_GetTicks()-time));
+
     }
     return NO_ERROR;
 }

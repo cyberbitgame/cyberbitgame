@@ -19,5 +19,7 @@ libCyberbitGame_la_SOURCES = libCyberbitGame/game.cpp \
 			  				 libCyberbitGame/globals.cpp \
 			  				 libCyberbitGame/engine/music.cpp \
 			  				 libCyberbitGame/physics.cpp \
+			  				 libCyberbitGame/menu.cpp \
 			  				 libjson/jsoncpp.cpp
+
 
