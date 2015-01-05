@@ -12,6 +12,9 @@ int Menu::menu_load(int menu_type, Game* game_obj)
             if( _pause_menu(game_obj) != 0 )
                 return UNABLE_TO_RENDER_PAUSE_MENU; //Return error
             break;
+        case CREDITS_MENU:
+            if( _credits_menu(game_obj) != 0)
+                return UNABLE_TO_RENDER_PAUSE_MENU;
         default:
             return UNKNOWN_MENU_TYPE; //Return error
             break;
@@ -21,37 +24,47 @@ int Menu::menu_load(int menu_type, Game* game_obj)
 
 int _main_menu(Game* game_obj)
 {
-    const int btn_count = 3;
-    const char* btn_labels[btn_count] = {"Play","Character Select","Exit"};
-    const char* menu_header = "Main  Menu";
-    const int PLAY=0,CHARACTER_SELECT=1,EXIT=2;
+    const int btn_count = 5;
+    const char* btn_labels[btn_count] = {"Start Game", "Character Select", "Options", "Credits", "Exit"};
+    const char* menu_header = "CyberBit: A Programmed Superhuman";
+    const int START_GAME=0, CHARACTER_SELECT=1, OPTIONS=2, CREDITS=3, EXIT=4;
     int btn_clicked = _load_menu( game_obj, menu_header, btn_count, btn_labels );
     switch(btn_clicked) {
-        case PLAY:
+        case START_GAME:
             if(DEV){std::cout<<"starting game"<<'\n';}
             game_obj->game_start();
-        break;
+            break;
         case CHARACTER_SELECT:
             //Character select
-        break;
+            break;
+        case OPTIONS:
+            //Character select
+            break;
+        case CREDITS:
+            Menu::menu_load(CREDITS_MENU, game_obj);
+            break;
         case EXIT:
             //Exit
-        break;
+            break;
         default:
             return UNKNOWN_BUTTON_CLICK;
-        break;
+            break;
     }
     return NO_ERROR; //Return successful
 }
 
 int _pause_menu(Game* game_obj)
 {
-    const int btn_count = 2;
-    const char* btn_labels[btn_count] = {"Resume","Exit"};
+    const int btn_count = 3;
+    const char* btn_labels[btn_count] = {"Main Menu", "Resume","Exit"};
     const char* menu_header = "Paused";
-    const int RESUME=0,EXIT=1;
+    const int HOME=0, RESUME=1, EXIT=2;
     int btn_clicked = _load_menu( game_obj, menu_header, btn_count, btn_labels );
     switch(btn_clicked) {
+        case HOME:
+            if(DEV){std::cout<<"main menu game"<<'\n';}
+            Menu::menu_load(MAIN_MENU, game_obj);
+        break;
         case RESUME:
             if(DEV){std::cout<<"resuming game"<<'\n';}
         break;
@@ -167,6 +180,29 @@ int _load_menu(Game* game_obj, const char* menu_header, int btn_count, const cha
 if( (Uint32)(1000/30) > (SDL_GetTicks()-time) )
   SDL_Delay(1000/30-(SDL_GetTicks()-time));
 
+    }
+    return NO_ERROR;
+}
+
+int _credits_menu(Game* game_obj)
+{
+    const int btn_count = 2;
+    const char* btn_labels[btn_count] = {"Back","Exit"};
+    const char* menu_header = "Credits";
+    const int BACK=0,EXIT=1;
+    int btn_clicked = _load_menu( game_obj, menu_header, btn_count, btn_labels );
+    switch(btn_clicked) {
+        case BACK:
+            if(DEV){std::cout<<"resuming game"<<'\n';}
+                Menu::menu_load(MAIN_MENU, game_obj);
+        break;
+        case EXIT:
+            //Exit
+            exit(0); //Fix this up later
+        break;
+        default:
+            return UNKNOWN_BUTTON_CLICK;
+        break;
     }
     return NO_ERROR;
 }
