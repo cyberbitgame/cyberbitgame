@@ -46,4 +46,10 @@ int _pause_menu(Game* game_obj);
  */
 int _load_menu(Game* game_obj, const char* menu_header, int btn_count, const char* btn_labels[]);
 
+/**
+ * @brief Public function to access the menu framework
+ * @param Game A game object to render menu into
+ */
+int _credits_menu(Game* game_obj);
+
 #endif

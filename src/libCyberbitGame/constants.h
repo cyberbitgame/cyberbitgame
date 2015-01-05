@@ -24,5 +24,7 @@
 //Menu definitions
 #define MAIN_MENU 0
 #define PAUSE_MENU 1
+#define OPTIONS_MENU 2
+#define CREDITS_MENU 3
 
 #endif

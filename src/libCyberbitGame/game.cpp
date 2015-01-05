@@ -64,7 +64,7 @@ void Game::game_event_handler()
 								case SDLK_RIGHT: direction[R_MOVEMENT]=0;
 												 break;
                                 case SDLK_ESCAPE: Menu::menu_load(PAUSE_MENU, this);
-                                                break;
+                                                  break;
 								default: break;
 							}
 							break;
