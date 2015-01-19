@@ -16,6 +16,7 @@
 #define HERO_MUSIC 2
 #define FIRST_FREE_UNRESERVED_CHANNEL -1
 #define PUNCH_CHUNK 1
+#define KICK_CHUNK 2
 #define ONCE 0
 #define ONE_TIME 1
 #define NO_ERROR 0
