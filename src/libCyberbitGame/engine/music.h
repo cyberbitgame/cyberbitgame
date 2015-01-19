@@ -6,7 +6,8 @@
 class Music {
 
 	Mix_Music* bgmusic;
-	Mix_Chunk *sounds;
+	Mix_Chunk *cyberBitAirPunch_chunk;
+	Mix_Chunk *cyberBitAirKick_chunk;
 	Mix_Music* music_load_music(const char* music_file);
 	Mix_Chunk* music_load_chunk(const char* chunk_file);
 

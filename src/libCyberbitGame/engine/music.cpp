@@ -9,12 +9,15 @@ Music::Music()
 	std::cout<<"Game Constructor";
 
 	bgmusic = music_load_music("../data/music/heroTheme_music.mp3");
-	sounds = music_load_chunk("../data/music/punchSound_chunk.wav");
+	cyberBitAirPunch_chunk = music_load_chunk("../data/music/cyberBitAirPunch_chunk.wav");
+	cyberBitAirKick_chunk = music_load_chunk("../data/music/cyberBitAirKick_chunk.wav");
+
 }
 
 Music::~Music()
 {
-	Mix_FreeChunk(sounds);
+	Mix_FreeChunk(cyberBitAirPunch_chunk);
+	Mix_FreeChunk(cyberBitAirKick_chunk);
 	Mix_FreeMusic(bgmusic);
 	Mix_CloseAudio();
 }
@@ -62,11 +65,19 @@ int Music::music_play_chunk(int chunk_track)
 
 	switch(chunk_track) {
 		case PUNCH_CHUNK: {
-								if(Mix_PlayChannel(FIRST_FREE_UNRESERVED_CHANNEL, sounds, ONCE) == -1) {
+								if(Mix_PlayChannel(FIRST_FREE_UNRESERVED_CHANNEL, cyberBitAirPunch_chunk, ONCE) == -1) {
 							    	exit(UNABLE_TO_PLAY_CHUNK);
 						  		}
 						  }
 						  break;
+
+		case KICK_CHUNK: {
+								if(Mix_PlayChannel(FIRST_FREE_UNRESERVED_CHANNEL, cyberBitAirKick_chunk, ONCE) == -1) {
+							    	exit(UNABLE_TO_PLAY_CHUNK);
+						  		}
+						  }
+						  break;
+
 
 
 	}

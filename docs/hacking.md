@@ -116,6 +116,8 @@ The todo list can be found [here.](https://github.com/cyberbitgame/cyberbitgame/
 
 [] Opened Task (no one is working on it)
 
+[!] High priority task
+
 [x] Working/Completed Task (someone finished it or working on it)
 
 Presentations:

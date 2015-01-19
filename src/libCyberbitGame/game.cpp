@@ -52,6 +52,10 @@ void Game::game_event_handler()
 												 break;
 								case SDLK_RIGHT: direction[R_MOVEMENT]=1;
 												 break;
+								case SDLK_p: gamemusic->music_play_chunk(PUNCH_CHUNK);
+											break;
+								case SDLK_k: gamemusic->music_play_chunk(KICK_CHUNK);
+											break;
 								//case SDLK_SPACE: for jump
 								//case SDLK_S : for shoot
 								default: break;
