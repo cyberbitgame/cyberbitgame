@@ -2,3 +2,4 @@ TODO List:
 =======
 
 [x] Update wiki about installing Ubuntu inside windows using Virtual Box [Raoul]
+[x] Add a file named coding_standards.md in docs [sarvsav]
