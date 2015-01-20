@@ -34,7 +34,7 @@ Working with Git:
 
 4. Switch to branch develop. (```$ git checkout develop```)
 
-5. Create a new meaning full name of branch from branch develop, suppose 
+5. Create a new meaningful name of branch from branch develop, suppose 
    you are working on a issue or fixing any bug, related to screen resolution, 
    switch to it and work on your code.
 
@@ -87,7 +87,7 @@ tell ** 7 AM GMT. **
 Mailing list are the main source of communication.
 
 * Mailing List: 
-  CyberBit Genearl ML (cyberbitgame-general@googlegroups.com)
+  CyberBit Genearl ML (cyberbitgame-general(at)googlegroups(dot)com)
 
   Every mail has a special Tag. Use the Tag in subject line of the mail, and 
  
@@ -102,7 +102,7 @@ Mailing list are the main source of communication.
   For Developers, we have a separate mailing list, discuss about coding issue,
   bugs, and all coding related tasks.
  
-  CyberBit Internals (cyberbitgame-internals@googlegroups.com)
+  CyberBit Internals (cyberbitgame-internals(at)googlegroups(dot)com)
   
 * IRC: Available on #cyberbitgame at irc.freenode.net
 
@@ -136,9 +136,11 @@ Authors:
 ========
 
 Please mention your name here.
-* Sarvsav Sharma (sarvsav@gmail.com)
-* Brandon Burton (izodn0@gmail.com)
-* Raoul Kalisvaart (Raoulkalisvaart@hotmail.com)
+* Sarvsav Sharma (sarvsav(at)gmail(dot)com)
+* Brandon Burton (izodn0(at)gmail(dot)com)
+* Raoul Kalisvaart (Raoulkalisvaart(at)hotmail(dot)com)
+* Zafirka Stoyanova (zaf.nova(at)gmail(dot)com)
+* Emanuil Glavchev (fantasmo3(at)gmail(dot)com)
 
 Contributors:
 ========
