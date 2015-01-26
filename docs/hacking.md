@@ -106,6 +106,11 @@ Mailing list are the main source of communication.
   
 * IRC: Available on #cyberbitgame at irc.freenode.net
 
+Coding Standards:
+========
+
+You can find the coding standards [here.](https://github.com/cyberbitgame/cyberbitgame/blob/develop/CODING_STANDARDS)
+
 Testing:
 ========
 
@@ -113,6 +118,9 @@ ToDo List:
 ========
 
 The todo list can be found [here.](https://github.com/cyberbitgame/cyberbitgame/blob/develop/docs/ToDo.txt)
+The list is organised in a manner, that the open tasks are at the top, after
+that high priority tasks are defined (They are assigned to particular author).
+And in the end, the working/completed tasks are mentioned.
 
 [] Opened Task (no one is working on it)
 
