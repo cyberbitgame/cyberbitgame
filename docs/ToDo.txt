@@ -1,5 +1,11 @@
 TODO List:
 =======
 
+[] Add help scetion for the game.
+[] Add health bar at the top left in the game.
+[] Add a transparent screen in the game pause menu screen.
+[] List the items to be present in the game level-1.
+[] Add credits screen in the game.
+[] Add options to mute the music in the game.
 [x] Update wiki about installing Ubuntu inside windows using Virtual Box [Raoul]
 [x] Add a file named coding_standards.md in docs [sarvsav]
