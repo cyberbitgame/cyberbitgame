@@ -21,6 +21,7 @@
 #define ONE_TIME 1
 #define NO_ERROR 0
 #define FOREVER 1
+#define MAX_HEALTH 100
 
 //Menu definitions
 #define MAIN_MENU 0

@@ -1,10 +1,14 @@
 #ifndef ERRORS_H
 #define ERRORS_H
 
+/** Exit error has a limit upto 255 */
 
 /** Parser Errors */
 #define MISSING_CHARACTER_FILE 100
 #define CANNOT_PARSE_CHARACTER_FILE 101
+
+/** Player properties */
+#define MAX_HEALTH_REACHED 120
 
 /** SDL_Mixer Errors */
 #define UNABLE_TO_OPEN_AUDIO_SDL 200
@@ -14,11 +18,13 @@
 #define UNABLE_TO_PLAY_CHUNK 204
 
 /** Menu errors */
-#define UNABLE_TO_RENDER_MAIN_MENU 300
-#define UNABLE_TO_RENDER_PAUSE_MENU 301
-#define UNKNOWN_MENU_TYPE 302
-#define UNKNOWN_BUTTON_CLICK 303
-#define UNABLE_TO_INITIALIZE_TTF 304
-#define MISSING_FONT_FILE 305
+#define UNABLE_TO_RENDER_MAIN_MENU 220
+#define UNABLE_TO_RENDER_PAUSE_MENU 221
+#define UNKNOWN_MENU_TYPE 222
+#define UNKNOWN_BUTTON_CLICK 223
+#define UNABLE_TO_INITIALIZE_TTF 224
+#define MISSING_FONT_FILE 225
+
+
 
 #endif

@@ -3,7 +3,7 @@
 
 extern Json::Value json_characters;
 
-Player::Player(SDL_Surface* characterImage)
+Player::Player(SDL_Surface* characterImage, SDL_Surface* screen)
 {
 	playerImage = characterImage;
 	playerFrame.x = 0;
@@ -13,12 +13,33 @@ Player::Player(SDL_Surface* characterImage)
 	playerXVelocity = 0;
 	playerYVelocity = 0;
 	onGround = 0;
+	playerHealth = MAX_HEALTH;
+	color = SDL_MapRGB(screen->format, 255, 0, 0);
+	player_healthBarShow(screen, color);
 	// for loop to set the animations
 }
 
 Player::~Player()
 {
 	SDL_FreeSurface(playerImage);
+}
+
+float Player::player_healthBarUpdate()
+{
+	if (playerHealth > MAX_HEALTH) {
+		exit(MAX_HEALTH_REACHED);
+	}
+	return playerHealth;
+}
+
+int Player::player_healthBarShow(SDL_Surface* screen, Uint32 color)
+{
+	healthBar.w = player_healthBarUpdate();
+	healthBar.h = TILE_SIZE/5;
+	healthBar.x = TILE_SIZE/4;
+	healthBar.y = TILE_SIZE/4;
+	SDL_FillRect(screen, &healthBar, color);
+	return EXIT_SUCCESS;
 }
 
 SDL_Rect* Player::player_getPosition()
