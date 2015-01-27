@@ -26,7 +26,8 @@ Game::Game()
 	Frame::frameCoordinate.h = SCREEN_HEIGHT;
 	camera.w = SCREEN_WIDTH;
 	Frame::frameCoordinate.w = SCREEN_HEIGHT;
-	gameplayer = new Player(game_load_image("../data/images/nature.bmp", whiteColorKey));
+	redcolor = SDL_MapRGB(screen->format, 255, 0, 0);
+	gameplayer = new Player(game_load_image("../data/images/nature.bmp", whiteColorKey), screen);
 	gamemusic = new Music();
 	gamemusic->music_play_music(BACKGROUND_MUSIC);
 }
@@ -154,6 +155,7 @@ void Game::game_render_section()
 		exit(EXIT_FAILURE);
 	}
 	game_show_map();
+	gameplayer->player_healthBarShow(screen, redcolor);
 	gameplayer->player_show(screen);
 	SDL_Flip(screen);
 }

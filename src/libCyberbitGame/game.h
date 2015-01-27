@@ -19,6 +19,7 @@ class Game {
 					 R_MOVEMENT = 1 } movement;
 	Player* gameplayer;
 	Music* gamemusic;
+	Uint32 redcolor;
 	SDL_Surface* game_load_image(const char* imageFile, Uint32 colorKey);
 	void game_load_map(const char* mapFile);
 	void game_show_map();
