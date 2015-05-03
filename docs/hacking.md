@@ -149,6 +149,7 @@ Please mention your name here.
 * Raoul Kalisvaart (Raoulkalisvaart(at)hotmail(dot)com)
 * Zafirka Stoyanova (zaf.nova(at)gmail(dot)com)
 * Emanuil Glavchev (fantasmo3(at)gmail(dot)com)
+* Zack Mitkin (rare2oooo1(at)gmail(dot)com)
 
 Contributors:
 ========
