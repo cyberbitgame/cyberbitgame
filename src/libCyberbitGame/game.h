@@ -12,6 +12,7 @@ class Game {
 	SDL_Surface* displayBlockMap;
 	SDL_Surface* backgroundMap;
 	SDL_Rect camera;
+	int playerFaceDirection;
 	std::vector< std::vector<int> > map;
 	bool direction[2];
 	bool running;

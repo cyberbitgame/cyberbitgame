@@ -6,10 +6,18 @@ extern Json::Value json_characters;
 Player::Player(SDL_Surface* characterImage, SDL_Surface* screen)
 {
 	playerImage = characterImage;
-	playerFrame.x = 0;
-	playerFrame.y = 0;
+	playerFrame.x = POS_START;
+	playerFrame.y = POS_GROUND;
 	playerFrame.h = TILE_SIZE;
 	playerFrame.w = TILE_SIZE;
+	playerFaceFwdDirection.x = 0;
+	playerFaceFwdDirection.y = 0;
+	playerFaceFwdDirection.h = TILE_SIZE;
+	playerFaceFwdDirection.w = TILE_SIZE;
+	playerFaceBwdDirection.x = TILE_SIZE;
+	playerFaceBwdDirection.y = 0;
+	playerFaceBwdDirection.h = TILE_SIZE;
+	playerFaceBwdDirection.w = TILE_SIZE;
 	playerXVelocity = 0;
 	playerYVelocity = 0;
 	onGround = 0;
@@ -69,9 +77,14 @@ int Player::player_getVelocity(graph axis)
 	}
 }
 
-void Player::player_show(SDL_Surface* screen)
+void Player::player_show(SDL_Surface* screen, int playerFaceDirection)
 {
-	SDL_BlitSurface(playerImage, NULL, screen, &playerFrame);
+	if (playerFaceDirection == 1) {
+		SDL_BlitSurface(playerImage, &playerFaceFwdDirection, screen, &playerFrame);
+	}
+	else {
+		SDL_BlitSurface(playerImage, &playerFaceBwdDirection, screen, &playerFrame);
+	}
 }
 
 void Player::player_move(const std::vector<std::vector <int> >& map)
