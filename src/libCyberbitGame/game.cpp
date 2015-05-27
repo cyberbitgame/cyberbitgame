@@ -26,8 +26,9 @@ Game::Game()
 	Frame::frameCoordinate.h = SCREEN_HEIGHT;
 	camera.w = SCREEN_WIDTH;
 	Frame::frameCoordinate.w = SCREEN_HEIGHT;
+	playerFaceDirection = R_MOVEMENT;
 	redcolor = SDL_MapRGB(screen->format, 255, 0, 0);
-	gameplayer = new Player(game_load_image("../data/images/nature.bmp", whiteColorKey), screen);
+	gameplayer = new Player(game_load_image("../data/images/standing/cyberbit/stand.bmp", whiteColorKey), screen);
 	gamemusic = new Music();
 	gamemusic->music_play_music(BACKGROUND_MUSIC);
 }
@@ -131,6 +132,7 @@ void Game::game_logic_section()
 {
 	if(direction[R_MOVEMENT]) {
 		camera.x += SPEED;
+		playerFaceDirection = R_MOVEMENT;
 		Frame::frameCoordinate.x += SPEED;
 		if(camera.x >= (BGMAPX - SCREEN_WIDTH)) {
 			camera.x = 0;
@@ -138,6 +140,7 @@ void Game::game_logic_section()
 	}
 	else if(direction[L_MOVEMENT]) {
 		camera.x -= SPEED;
+		playerFaceDirection = L_MOVEMENT;
 		Frame::frameCoordinate.x -= SPEED;
 		if(camera.x <= 0) {
 			camera.x = BGMAPX - SCREEN_WIDTH;
@@ -156,7 +159,7 @@ void Game::game_render_section()
 	}
 	game_show_map();
 	gameplayer->player_healthBarShow(screen, redcolor);
-	gameplayer->player_show(screen);
+	gameplayer->player_show(screen, playerFaceDirection);
 	SDL_Flip(screen);
 }
 

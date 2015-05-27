@@ -15,6 +15,8 @@ typedef enum _graph { XAXIS = 1,
 
 class Player : public Physics {
 	SDL_Rect playerFrame;
+	SDL_Rect playerFaceFwdDirection;
+	SDL_Rect playerFaceBwdDirection;
 	SDL_Rect healthBar;
 	SDL_Surface* playerImage;
 	int playerXVelocity;
@@ -46,7 +48,7 @@ public:
 	void player_setVelocity(int velocity, graph axis);
 	int player_getVelocity(graph axis);
 	void player_move(const std::vector<std::vector <int> >& map);
-	void player_show(SDL_Surface* screen);
+	void player_show(SDL_Surface* screen, int playerFaceDirection);
 	void player_load_defaults(int character_id);
 };
 

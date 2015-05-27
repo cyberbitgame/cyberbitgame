@@ -29,4 +29,8 @@
 #define OPTIONS_MENU 2
 #define CREDITS_MENU 3
 
+//Positions
+#define POS_START 0;
+#define POS_GROUND 600;
+
 #endif
