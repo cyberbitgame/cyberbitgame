@@ -32,5 +32,7 @@
 //Positions
 #define POS_START 0;
 #define POS_GROUND 600;
+#define RIGHT 1
+#define LEFT 0
 
 #endif
