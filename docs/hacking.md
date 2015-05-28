@@ -149,7 +149,6 @@ Please mention your name here.
 * Raoul Kalisvaart (Raoulkalisvaart(at)hotmail(dot)com)
 * Thunar
 
-
 Contributors:
 ========
 
