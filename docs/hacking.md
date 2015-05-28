@@ -147,8 +147,8 @@ Please mention your name here.
 * Sarvsav Sharma (sarvsav(at)gmail(dot)com)
 * Brandon Burton (izodn0(at)gmail(dot)com)
 * Raoul Kalisvaart (Raoulkalisvaart(at)hotmail(dot)com)
-* Zafirka Stoyanova (zaf.nova(at)gmail(dot)com)
-* Emanuil Glavchev (fantasmo3(at)gmail(dot)com)
+* Thunar
+
 
 Contributors:
 ========

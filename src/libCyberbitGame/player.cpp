@@ -3,9 +3,11 @@
 
 extern Json::Value json_characters;
 
-Player::Player(SDL_Surface* characterImage, SDL_Surface* screen)
+Player::Player(SDL_Surface* characterImage, SDL_Surface* characterRunAnimation, SDL_Surface* screen)
 {
 	playerImage = characterImage;
+	playerRunning = false;
+	playerRunAnimation = characterRunAnimation;
 	playerFrame.x = POS_START;
 	playerFrame.y = POS_GROUND;
 	playerFrame.h = TILE_SIZE;
@@ -21,10 +23,23 @@ Player::Player(SDL_Surface* characterImage, SDL_Surface* screen)
 	playerXVelocity = 0;
 	playerYVelocity = 0;
 	onGround = 0;
+	int i=0;
+	int j=0;
 	playerHealth = MAX_HEALTH;
 	color = SDL_MapRGB(screen->format, 255, 0, 0);
 	player_healthBarShow(screen, color);
-	// for loop to set the animations
+	for (i=0; i<16; i++) {
+		playerRunningBwdFrame[i].x = i*TILE_SIZE;
+		playerRunningBwdFrame[i].y = 0;
+		playerRunningBwdFrame[i].h = TILE_SIZE;
+		playerRunningBwdFrame[i].w = TILE_SIZE;
+	}
+	for (i=31, j=0; i>15; i--, j++) {
+		playerRunningFwdFrame[j].x = i*TILE_SIZE;
+		playerRunningFwdFrame[j].y = 0;
+		playerRunningFwdFrame[j].h = TILE_SIZE;
+		playerRunningFwdFrame[j].w = TILE_SIZE;
+	}
 }
 
 Player::~Player()
@@ -77,13 +92,23 @@ int Player::player_getVelocity(graph axis)
 	}
 }
 
-void Player::player_show(SDL_Surface* screen, int playerFaceDirection)
-{
-	if (playerFaceDirection == 1) {
-		SDL_BlitSurface(playerImage, &playerFaceFwdDirection, screen, &playerFrame);
+void Player::player_show(SDL_Surface* screen, int playerFaceDirection, int iAmRunning, int playerRunning)
+{	frameCount = iAmRunning/3;
+	if (playerFaceDirection == RIGHT) {
+		if (playerRunning == true) {
+			SDL_BlitSurface(playerRunAnimation, &playerRunningFwdFrame[frameCount], screen, &playerFrame);
+		}
+		else {
+			SDL_BlitSurface(playerImage, &playerFaceFwdDirection, screen, &playerFrame);
+		}
 	}
 	else {
-		SDL_BlitSurface(playerImage, &playerFaceBwdDirection, screen, &playerFrame);
+		if (playerRunning == true) {
+			SDL_BlitSurface(playerRunAnimation, &playerRunningBwdFrame[frameCount], screen, &playerFrame);
+		}
+		else {
+			SDL_BlitSurface(playerImage, &playerFaceBwdDirection, screen, &playerFrame);
+		}
 	}
 }
 
@@ -98,18 +123,18 @@ void Player::player_move(const std::vector<std::vector <int> >& map)
 			SDL_Rect showPiece = {(j*TILE_SIZE)-Frame::frameCoordinate.x, i*TILE_SIZE, TILE_SIZE, TILE_SIZE};
 			if(physics_collision(&playerFrame, &showPiece)) {
 				nc = 1;
-				if(showPiece.y >= playerFrame.y + playerFrame.h - 5) {
+				if(showPiece.y >= playerFrame.y + playerFrame.h - 11) {
 					onGround = 1;
 					playerYVelocity = 0;
 				}
-				else if (showPiece.y+showPiece.h <= playerFrame.y) {
+				else if (showPiece.y+showPiece.h <= playerFrame.y + 11) {
 					playerFrame.x++;
 					playerYVelocity = 0;
 				}
-				if (playerFrame.x+playerFrame.w >= showPiece.x && playerFrame.y+playerFrame.h >= showPiece.y && playerFrame.x+playerFrame.w<= showPiece.x+20) {
+				if (playerFrame.x+playerFrame.w >= showPiece.x-5 && playerFrame.y+playerFrame.h >= showPiece.y+6 && playerFrame.x+playerFrame.w <= showPiece.x+20) {
 					playerXVelocity = 0;
 					playerFrame.x--;
-				} else if (playerFrame.x <= showPiece.x+showPiece.w && playerFrame.y+playerFrame.h >= showPiece.y) {
+				} else if (playerFrame.x <= showPiece.x+showPiece.w && playerFrame.y+playerFrame.h >= showPiece.y+6) {
 					playerXVelocity = 0;
 					playerFrame.x++;
 				}
