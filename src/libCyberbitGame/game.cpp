@@ -30,7 +30,7 @@ Game::Game()
 	Frame::frameCoordinate.w = SCREEN_HEIGHT;
 	playerFaceDirection = R_MOVEMENT;
 	redcolor = SDL_MapRGB(screen->format, 255, 0, 0);
-	gameplayer = new Player(game_load_image("../data/images/standing/cyberbit/stand.bmp", whiteColorKey), game_load_image("../data/images/running/running.bmp", whiteColorKey), screen);
+	gameplayer = new Player(game_load_image("../data/images/standing/cyberbit/stand.bmp", whiteColorKey), game_load_image("../data/images/running/cyberbit/running.bmp", whiteColorKey), screen);
 	gamemusic = new Music();
 	gamemusic->music_play_music(BACKGROUND_MUSIC);
 }
