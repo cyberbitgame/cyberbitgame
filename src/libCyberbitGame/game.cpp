@@ -12,7 +12,9 @@ Game::Game()
 	direction[L_MOVEMENT] = 0;
 	direction[R_MOVEMENT] = 0;
 	gameKeyDownRun = false;
+	gameKeyDownPunch = false;
 	iAmRunning = 0;
+	iAmPunching = 0;
 	screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_SWSURFACE);
 	Uint32 whiteColorKey = SDL_MapRGB(screen->format,0xff,0xff,0xff);
 	backgroundMap = game_load_image("../data/images/bgmap.bmp", whiteColorKey);
@@ -30,7 +32,10 @@ Game::Game()
 	Frame::frameCoordinate.w = SCREEN_HEIGHT;
 	playerFaceDirection = R_MOVEMENT;
 	redcolor = SDL_MapRGB(screen->format, 255, 0, 0);
-	gameplayer = new Player(game_load_image("../data/images/standing/cyberbit/stand.bmp", whiteColorKey), game_load_image("../data/images/running/cyberbit/running.bmp", whiteColorKey), screen);
+	gameplayer = new Player(game_load_image("../data/images/standing/cyberbit/stand.bmp", whiteColorKey),
+							game_load_image("../data/images/running/cyberbit/running.bmp", whiteColorKey),
+							game_load_image("../data/images/attacking/cyberbit/punching.bmp", whiteColorKey),
+							screen);
 	gamemusic = new Music();
 	gamemusic->music_play_music(BACKGROUND_MUSIC);
 }
@@ -59,6 +64,7 @@ void Game::game_event_handler()
 												gameKeyDownRun = true;
 												 break;
 								case SDLK_p: gamemusic->music_play_chunk(PUNCH_CHUNK);
+											 gameKeyDownPunch = true;
 											break;
 								case SDLK_k: gamemusic->music_play_chunk(KICK_CHUNK);
 											break;
@@ -136,6 +142,13 @@ void Game::game_show_map()
 
 void Game::game_logic_section()
 {
+	if(gameKeyDownPunch == true) {
+		if(iAmPunching > 18) {
+			iAmPunching = 0;
+			gameKeyDownPunch = false;
+		}
+		iAmPunching++;
+	}
 	if(direction[R_MOVEMENT]) {
 		camera.x += SPEED;
 		playerFaceDirection = R_MOVEMENT;
@@ -175,7 +188,12 @@ void Game::game_render_section()
 	}
 	game_show_map();
 	gameplayer->player_healthBarShow(screen, redcolor);
-	gameplayer->player_show(screen, playerFaceDirection, iAmRunning, gameKeyDownRun);
+	gameplayer->player_show(screen,
+							playerFaceDirection,
+							iAmRunning,
+							gameKeyDownRun,
+							iAmPunching,
+							gameKeyDownPunch);
 	SDL_Flip(screen);
 }
 

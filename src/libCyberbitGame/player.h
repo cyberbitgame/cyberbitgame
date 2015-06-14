@@ -22,15 +22,24 @@ class Player : public Physics {
 	int playerXVelocity;
 	int playerYVelocity;
 	bool playerRunning;
-	int frameCount;
+	bool playerPunching;
+	int frameCountRun;
+	int frameCountPunch;
 	bool onGround;
 	float playerHealth;
 	Uint32 color;
 	SDL_Surface* playerRunAnimation;
 	SDL_Rect playerRunningFwdFrame[16];
 	SDL_Rect playerRunningBwdFrame[16];
+	SDL_Surface* playerPunchAnimation;
+	SDL_Rect playerPunchFwdFrame[8];
+	SDL_Rect playerPunchBwdFrame[8];
+
 public:
-	Player(SDL_Surface* characterImage, SDL_Surface* characterRunAnimation, SDL_Surface* screen);
+	Player(SDL_Surface* characterImage,
+		   SDL_Surface* characterRunAnimation,
+		   SDL_Surface* characterPunchAnimation,
+		   SDL_Surface* screen);
 	~Player();
 
 /**
@@ -52,7 +61,12 @@ public:
 	void player_setVelocity(int velocity, graph axis);
 	int player_getVelocity(graph axis);
 	void player_move(const std::vector<std::vector <int> >& map);
-	void player_show(SDL_Surface* screen, int playerFaceDirection, int iAmRunning, int playerRunning);
+	void player_show(SDL_Surface* screen,
+					 int playerFaceDirection,
+					 int iAmRunning,
+					 int playerRunning,
+					 int iAmPunching,
+					 int playerPunching);
 	void player_load_defaults(int character_id);
 };
 

@@ -9,11 +9,13 @@
 
 class Game {
 	int iAmRunning;
+	int iAmPunching;
 	SDL_Surface* icon;
 	SDL_Surface* displayBlockMap;
 	SDL_Surface* backgroundMap;
 	SDL_Rect camera;
 	bool gameKeyDownRun;
+	bool gameKeyDownPunch;
 	int playerFaceDirection;
 	std::vector< std::vector<int> > map;
 	bool direction[2];
