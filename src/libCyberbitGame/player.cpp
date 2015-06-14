@@ -3,11 +3,16 @@
 
 extern Json::Value json_characters;
 
-Player::Player(SDL_Surface* characterImage, SDL_Surface* characterRunAnimation, SDL_Surface* screen)
+Player::Player(SDL_Surface* characterImage,
+			   SDL_Surface* characterRunAnimation,
+			   SDL_Surface* characterPunchAnimation,
+			   SDL_Surface* screen)
 {
 	playerImage = characterImage;
 	playerRunning = false;
+	playerPunching = false;
 	playerRunAnimation = characterRunAnimation;
+	playerPunchAnimation = characterPunchAnimation;
 	playerFrame.x = POS_START;
 	playerFrame.y = POS_GROUND;
 	playerFrame.h = TILE_SIZE;
@@ -40,7 +45,20 @@ Player::Player(SDL_Surface* characterImage, SDL_Surface* characterRunAnimation, 
 		playerRunningFwdFrame[j].h = TILE_SIZE;
 		playerRunningFwdFrame[j].w = TILE_SIZE;
 	}
+	for (i=0; i<8; i++) {
+		playerPunchBwdFrame[i].x = i*TILE_SIZE;
+		playerPunchBwdFrame[i].y = 0;
+		playerPunchBwdFrame[i].h = TILE_SIZE;
+		playerPunchBwdFrame[i].w = TILE_SIZE;
+	}
+	for (i=15, j=0; i>7; i--, j++) {
+		playerPunchFwdFrame[j].x = i*TILE_SIZE;
+		playerPunchFwdFrame[j].y = 0;
+		playerPunchFwdFrame[j].h = TILE_SIZE;
+		playerPunchFwdFrame[j].w = TILE_SIZE;
+	}
 }
+
 
 Player::~Player()
 {
@@ -92,22 +110,38 @@ int Player::player_getVelocity(graph axis)
 	}
 }
 
-void Player::player_show(SDL_Surface* screen, int playerFaceDirection, int iAmRunning, int playerRunning)
-{	frameCount = iAmRunning/3;
+void Player::player_show(SDL_Surface* screen,
+						 int playerFaceDirection,
+						 int iAmRunning,
+						 int playerRunning,
+						 int iAmPunching,
+						 int playerPunching)
+{	frameCountRun = iAmRunning/3;
+	frameCountPunch = iAmPunching/3;
 	if (playerFaceDirection == RIGHT) {
-		if (playerRunning == true) {
-			SDL_BlitSurface(playerRunAnimation, &playerRunningFwdFrame[frameCount], screen, &playerFrame);
+		if (playerPunching == true) {
+			SDL_BlitSurface(playerPunchAnimation, &playerPunchFwdFrame[frameCountPunch], screen, &playerFrame);
 		}
 		else {
-			SDL_BlitSurface(playerImage, &playerFaceFwdDirection, screen, &playerFrame);
+			if (playerRunning == true) {
+				SDL_BlitSurface(playerRunAnimation, &playerRunningFwdFrame[frameCountRun], screen, &playerFrame);
+			}
+			else {
+				SDL_BlitSurface(playerImage, &playerFaceFwdDirection, screen, &playerFrame);
+			}
 		}
 	}
 	else {
-		if (playerRunning == true) {
-			SDL_BlitSurface(playerRunAnimation, &playerRunningBwdFrame[frameCount], screen, &playerFrame);
+		if (playerPunching == true) {
+			SDL_BlitSurface(playerPunchAnimation, &playerPunchBwdFrame[frameCountPunch], screen, &playerFrame);
 		}
 		else {
-			SDL_BlitSurface(playerImage, &playerFaceBwdDirection, screen, &playerFrame);
+			if (playerRunning == true) {
+				SDL_BlitSurface(playerRunAnimation, &playerRunningBwdFrame[frameCountRun], screen, &playerFrame);
+			}
+			else {
+				SDL_BlitSurface(playerImage, &playerFaceBwdDirection, screen, &playerFrame);
+			}
 		}
 	}
 }
