@@ -63,7 +63,7 @@ void Game::game_event_handler()
 								case SDLK_RIGHT: direction[R_MOVEMENT]=1;
 												gameKeyDownRun = true;
 												 break;
-								case SDLK_p: gamemusic->music_play_chunk(PUNCH_CHUNK);
+								case SDLK_p: 
 											 gameKeyDownPunch = true;
 											break;
 								case SDLK_k: gamemusic->music_play_chunk(KICK_CHUNK);
@@ -143,11 +143,14 @@ void Game::game_show_map()
 void Game::game_logic_section()
 {
 	if(gameKeyDownPunch == true) {
-		if(iAmPunching > 18) {
-			iAmPunching = 0;
-			gameKeyDownPunch = false;
-		}
 		iAmPunching++;
+		switch (iAmPunching) {
+			case 1: gamemusic->music_play_chunk(PUNCH_CHUNK);
+					break;
+			case 19: iAmPunching = 0;
+					 gameKeyDownPunch = false;
+					 break;
+		}
 	}
 	if(direction[R_MOVEMENT]) {
 		camera.x += SPEED;
